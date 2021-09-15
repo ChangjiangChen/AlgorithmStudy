@@ -16,7 +16,7 @@ import java.util.List;
  * a2.如果输入的是n位数，那么构建的n位数第一个数字不能比输入数字大
  */
 public class BalancedPrime {
-    public static final List<Integer> INTEGER_LIST = new ArrayList<Integer>();
+    public static final List<Integer> INTEGER_LIST = new ArrayList<>();
 
     static {
         INTEGER_LIST.add(2);
@@ -26,7 +26,7 @@ public class BalancedPrime {
     }
 
     private static void processNumberLtTen(int source) {
-        ArrayList<Integer> integerArrayList = new ArrayList<Integer>();
+        ArrayList<Integer> integerArrayList = new ArrayList<>();
         integerArrayList.add(2);
         if (source >= 3) {
             integerArrayList.add(3);
