@@ -7,19 +7,15 @@ import java.util.List;
  * @author changjiang.chen
  * @description 找出N内的所有质数且对称的数字，包含个位数。注意:0和1既不是质数也不是合数。
  * @timestamp 2021-09-15 11:04:19
+ *
+ * TODO 设计跳跃函数：判断该数字的级数，当级数变化时，计算出需要跳跃多少步才会发生级数变化，满跳跃数后，再次计算级数并判断是否跳过某个数字段
+ * 1.如果大于10，那么结果集包含2,3,5,7
+ * 2.对于大于10的数字（两位以上的数字，含两位）的处理：
+ * a.分析数字的位数，并判断这个位数的奇偶性。--构建所有可能的对称数
+ * a1.打头的数字不能为0,2,4,5,6,8
+ * a2.如果输入的是n位数，那么构建的n位数第一个数字不能比输入数字大
  */
 public class BalancedPrime {
-
-    /**
-     * 1.如果大于10，那么结果集包含2,3,5,7
-     * 2.对于大于10的数字（两位以上的数字，含两位）的处理：
-     * a.分析数字的位数，并判断这个位数的奇偶性。--构建所有可能的对称数
-     * a1.打头的数字不能为0,2,4,5,6,8
-     * a2.如果输入的是n位数，那么构建的n位数第一个数字不能比输入数字大
-     *
-     * @param inputMaxNumber 输入的最大值,0和1既不是质数也不是合数，要求输入必须大于1
-     */
-
     public static final List<Integer> INTEGER_LIST = new ArrayList<Integer>();
 
     static {
@@ -44,6 +40,7 @@ public class BalancedPrime {
         System.out.println("integerArrayList = " + integerArrayList.toString());
     }
 
+
     public static void find(int source) {
         if (source <= 1) {
             throw new RuntimeException("out of range");
@@ -52,13 +49,10 @@ public class BalancedPrime {
             processNumberLtTen(source);
             return;
         }
-        //后续都是大于等于10的数字，可以用（1.构建对称数，2.判断质数）的逻辑处理
-        int compare = 0;
-        for (int i = 1; compare <= source; i++) {
-            compare = 6 * i + 5;
-            compareAndProcess(compare);
-            compare = 6 * i + 7;
-            compareAndProcess(compare);
+        for (int i = 11; i <= source; i += 2) {
+            //set skip count
+            //calculate skip segment
+            compareAndProcess(i);
         }
         System.out.println("INTEGER_LIST = " + INTEGER_LIST.toString());
     }
@@ -107,7 +101,7 @@ public class BalancedPrime {
 
     public static void main(String[] args) {
         long l = System.currentTimeMillis();
-        find(1000000000);
-        System.out.println("time eclipsed = " + (System.currentTimeMillis() - l));
+        find(100000000);
+        System.out.println("time escaped = " + (System.currentTimeMillis() - l));
     }
 }
