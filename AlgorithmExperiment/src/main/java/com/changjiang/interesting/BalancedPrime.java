@@ -31,7 +31,6 @@ public class BalancedPrime {
         if (source >= 7) {
             integerArrayList.add(7);
         }
-        System.out.println("integerArrayList = " + integerArrayList.toString());
     }
 
     public static void find(int source) {
@@ -67,7 +66,6 @@ public class BalancedPrime {
 
             compareAndProcess(i);
         }
-        System.out.println("INTEGER_LIST = " + INTEGER_LIST.toString());
     }
 
     private static int calculateCurrent(int current, int ex) {
@@ -249,7 +247,8 @@ public class BalancedPrime {
 
     public static void main(String[] args) {
         long l = System.currentTimeMillis();
-        findFromSymmetry(1000000000);
+//        findFromSymmetry(1000000000);
+        find(1000000000);
         System.out.println("time escaped = " + (System.currentTimeMillis() - l));
     }
 }
