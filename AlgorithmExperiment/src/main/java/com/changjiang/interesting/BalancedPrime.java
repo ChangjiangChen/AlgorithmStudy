@@ -7,7 +7,7 @@ import java.util.List;
  * @author changjiang.chen
  * @description 找出N内的所有质数且对称的数字，包含个位数。注意:0和1既不是质数也不是合数。
  * @timestamp 2021-09-15 11:04:19
- *
+ * <p>
  * TODO 设计跳跃函数：判断该数字的级数，当级数变化时，计算出需要跳跃多少步才会发生级数变化，满跳跃数后，再次计算级数并判断是否跳过某个数字段
  * 1.如果大于10，那么结果集包含2,3,5,7
  * 2.对于大于10的数字（两位以上的数字，含两位）的处理：
@@ -49,9 +49,33 @@ public class BalancedPrime {
             processNumberLtTen(source);
             return;
         }
+
+        //遇关键数字跳跃数字段，可提升接近50%性能
+//        int ex = 0;
+//        int skipCount = 0;
+//        int limitSkipCount = -1;
         for (int i = 11; i <= source; i += 2) {
-            //set skip count
-            //calculate skip segment
+//            if (skipCount == limitSkipCount || limitSkipCount == -1) {
+//                int current = i;
+//                while (current >= 10) {
+//                    current /= 10;
+//                    ex++;
+//                }
+//                limitSkipCount = ((int) Math.pow(10, ex)) / 2;
+//                if (current == 2) {
+//                    i = (3 * (int) Math.pow(10, ex)) + 1;
+//                } else if (current == 4 || current == 5 || current == 6) {
+//                    i = (7 * (int) Math.pow(10, ex)) + 1;
+//                } else if (current == 8) {
+//                    i = (9 * (int) Math.pow(10, ex)) + 1;
+//                } else {
+//                    limitSkipCount = (((current + 1) * (int) Math.pow(10, ex)) + 1 - i) / 2;
+//                }
+//                ex = 0;
+//                skipCount = 0;
+//            }
+//            skipCount++;
+
             compareAndProcess(i);
         }
         System.out.println("INTEGER_LIST = " + INTEGER_LIST.toString());
@@ -101,7 +125,7 @@ public class BalancedPrime {
 
     public static void main(String[] args) {
         long l = System.currentTimeMillis();
-        find(100000000);
+        find(1000000000);
         System.out.println("time escaped = " + (System.currentTimeMillis() - l));
     }
 }
