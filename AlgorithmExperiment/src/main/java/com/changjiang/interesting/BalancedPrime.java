@@ -62,12 +62,8 @@ public class BalancedPrime {
 //                    ex++;
 //                }
 //                limitSkipCount = ((int) Math.pow(10, ex)) / 2;
-//                if (current == 2) {
-//                    i = (3 * (int) Math.pow(10, ex)) + 1;
-//                } else if (current == 4 || current == 5 || current == 6) {
-//                    i = (7 * (int) Math.pow(10, ex)) + 1;
-//                } else if (current == 8) {
-//                    i = (9 * (int) Math.pow(10, ex)) + 1;
+//                if (current % 2 == 0 || current == 5) {
+//                    i = calculateCurrent(current, ex);
 //                } else {
 //                    limitSkipCount = (((current + 1) * (int) Math.pow(10, ex)) + 1 - i) / 2;
 //                }
@@ -80,6 +76,19 @@ public class BalancedPrime {
         }
         System.out.println("INTEGER_LIST = " + INTEGER_LIST.toString());
     }
+
+    private static int calculateCurrent(int current, int ex) {
+        if (current == 2) {
+            return (3 * (int) Math.pow(10, ex)) + 1;
+        } else if (current == 4 || current == 5 || current == 6) {
+            return (7 * (int) Math.pow(10, ex)) + 1;
+        } else if (current == 8) {
+            return (9 * (int) Math.pow(10, ex)) + 1;
+        } else {
+            throw new RuntimeException("out of range");
+        }
+    }
+
 
     private static void compareAndProcess(int compare) {
         if (isBalanced(compare) && isPrime(compare)) {
