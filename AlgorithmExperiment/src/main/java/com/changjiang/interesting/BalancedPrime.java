@@ -247,8 +247,8 @@ public class BalancedPrime {
 
     public static void main(String[] args) {
         long l = System.currentTimeMillis();
-//        findFromSymmetry(1000000000);
-        find(1000000000);
+        findFromSymmetry(1000000000);
+//        find(1000000000);
         System.out.println("time escaped = " + (System.currentTimeMillis() - l));
     }
 }
