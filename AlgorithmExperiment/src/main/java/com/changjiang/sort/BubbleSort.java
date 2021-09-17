@@ -11,10 +11,11 @@ public class BubbleSort {
         boolean flag = true;
         int current = array.length - 1;
         int position = 0;
-        int count = 0;
+        int internalCount = 0;
+        int outerCount = 0;
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < current; j++) {
-                count++;
+                internalCount++;
                 if (array[j] > array[j + 1]) {
                     array[j] ^= array[j + 1];
                     array[j + 1] ^= array[j];
@@ -23,14 +24,17 @@ public class BubbleSort {
                     position = j;
                 }
             }
+            outerCount++;
             if (flag) {
                 break;
             } else {
                 flag = true;
                 current = position;
             }
+
         }
-        System.out.println("count = " + count);
+        System.out.println("internalCount = " + internalCount);
+        System.out.println("outerCount = " + outerCount);
     }
 
     public static void sortWithFlag(int[] array) {
@@ -39,10 +43,11 @@ public class BubbleSort {
         }
 
         boolean flag = true;
-        int count = 0;
+        int internalCount = 0;
+        int outerCount = 0;
         for (int i = 0; i < array.length - 1; i++) {
             for (int j = 0; j < array.length - 1 - i; j++) {
-                count++;
+                internalCount++;
                 if (array[j] > array[j + 1]) {
                     array[j] ^= array[j + 1];
                     array[j + 1] ^= array[j];
@@ -50,13 +55,15 @@ public class BubbleSort {
                     flag = false;
                 }
             }
+            outerCount++;
             if (flag) {
                 break;
             } else {
                 flag = true;
             }
         }
-        System.out.println("count = " + count);
+        System.out.println("internalCount = " + internalCount);
+        System.out.println("outerCount = " + outerCount);
     }
 
     public static void main(String[] args) {
