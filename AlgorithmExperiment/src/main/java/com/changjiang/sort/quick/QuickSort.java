@@ -1,4 +1,4 @@
-package com.changjiang.sort;
+package com.changjiang.sort.quick;
 
 import java.util.Arrays;
 

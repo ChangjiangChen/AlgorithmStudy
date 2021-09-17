@@ -35,6 +35,7 @@ public class BubbleSort {
         }
         System.out.println("internalCount = " + internalCount);
         System.out.println("outerCount = " + outerCount);
+        System.out.println("array = " + Arrays.toString(array));
     }
 
     public static void sortWithFlag(int[] array) {
@@ -64,12 +65,12 @@ public class BubbleSort {
         }
         System.out.println("internalCount = " + internalCount);
         System.out.println("outerCount = " + outerCount);
+        System.out.println("array = " + Arrays.toString(array));
     }
 
     public static void main(String[] args) {
         int[] array = {2, 3, 1, 4, 2, 44, 32, 13, 12, 56, 32, 12, 33, 21, 15, 16, 76, 45, 32, 33, 121, 123, 123, 122};
-        sortWithFlag(array);
-//        sortWithInternalPosition(array);
-        System.out.println("Arrays.toString(array) = " + Arrays.toString(array));
+        sortWithFlag(Arrays.copyOf(array, array.length));
+        sortWithInternalPosition(Arrays.copyOf(array, array.length));
     }
 }
