@@ -238,7 +238,10 @@ public class BalancedPrime {
                 }
 
                 //比较，并决定是否放入结果集
-                compareAndProcess(integer);
+                if (isPrime(integer)) {
+                    INTEGER_LIST.add(integer);
+                }
+
             }
             //减少一位，继续循环，直到降低到个位数字
             process /= 10;
