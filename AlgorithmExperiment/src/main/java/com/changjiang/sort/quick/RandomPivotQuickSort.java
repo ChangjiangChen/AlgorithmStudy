@@ -46,6 +46,13 @@ public class RandomPivotQuickSort {
         }
     }
 
+    /**
+     * 选定了随机的pivot后，将该位置的元素与array[left]进行交换
+     *
+     * @param array
+     * @param left
+     * @param position
+     */
     private static void swapValue(int[] array, int left, int position) {
         array[position] ^= array[left];
         array[left] ^= array[position];
