@@ -12,6 +12,14 @@ public class Common {
             return;
         }
 
+        if (left == right) {
+            return;
+        }
+
+        if (array[left] == array[right]) {
+            return;
+        }
+
         array[left] ^= array[right];
         array[right] ^= array[left];
         array[left] ^= array[right];
