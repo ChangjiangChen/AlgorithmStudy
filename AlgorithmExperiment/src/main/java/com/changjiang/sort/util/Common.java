@@ -7,9 +7,13 @@ public class Common {
      * @param left
      * @param right
      */
-    public static void swampValue(int left, int right) {
-        left ^= right;
-        right ^= left;
-        left ^= right;
+    public static void swampValue(int[] array, int left, int right) {
+        if (array == null || array.length < 2) {
+            return;
+        }
+
+        array[left] ^= array[right];
+        array[right] ^= array[left];
+        array[left] ^= array[right];
     }
 }
