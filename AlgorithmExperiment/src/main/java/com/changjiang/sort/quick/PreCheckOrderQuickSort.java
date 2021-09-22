@@ -1,7 +1,5 @@
 package com.changjiang.sort.quick;
 
-import com.sun.deploy.util.ArrayUtil;
-
 import java.util.Arrays;
 import java.util.Random;
 
@@ -99,7 +97,7 @@ public class PreCheckOrderQuickSort {
     public static void main(String[] args) {
         int[] range = {1, 3, 4, 5, 6, 7, 8, 12, 13, 22, 31, 323, 423};
 //        reverseArray(range, 0, range.length - 1);
-        sort(range, 0, range.length - 1);
+//        sort(range, 0, range.length - 1);
         System.out.println("range = " + Arrays.toString(range));
     }
 
