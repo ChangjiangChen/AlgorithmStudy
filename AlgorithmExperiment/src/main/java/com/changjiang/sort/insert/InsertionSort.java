@@ -1,4 +1,4 @@
-package com.changjiang.sort;
+package com.changjiang.sort.insert;
 
 import com.changjiang.sort.util.Common;
 
